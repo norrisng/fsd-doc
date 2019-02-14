@@ -1,0 +1,20 @@
+site_name: FSD (unofficial)
+pages:
+  - Home: index.md
+  - Preface:
+      - 'Preamble': 'intro/preface.md'
+      - 'Legal': 'intro/legal.md'
+      - 'License': 'intro/gpl.md'
+  - Introduction:
+      - 'Terms used': 'intro/defs.md'
+      - 'Overview of FSD': 'intro/overview.md'
+  - Reference:
+      - 'FSD packet': 'api/packet.md'
+      - 'Connecting': 'api/connect.md'      
+      - 'Adding/removing clients': 'api/addclients.md'
+      - 'Position updates': 'api/pos.md'
+      - 'METAR': 'api/metar.md'
+      - 'Sending/receiving info': 'api/info.md'
+      - 'Other packets': 'api/others.md'
+      - 'Logging off': 'api/logoff.md'
+theme: readthedocs
