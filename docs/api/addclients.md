@@ -2,6 +2,8 @@
 
 While the presence (or absence) of client update packets (see "Positon updates" under "Requesting and sending information") will signify the presence (or lack thereof) of a client, the server will also send a special packet signaling the addition/removal of said client, whether this is due to client disconnecting or falling out of visibility range.
 
+The following commands are also used to login/logoff the client itself.
+
 
 
 ## Adding clients ##

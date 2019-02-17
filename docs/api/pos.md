@@ -6,7 +6,7 @@ Position updates are sent every 5 seconds.
 
 ## Pilots ##
 
-Aircraft updates (both outgoing and incoming) are prefixed with `@S` or `@N`. The distinction between the two is unclear:
+Aircraft updates (both outgoing and incoming) are prefixed with `@S` or `@N`. The distinction between the two is unclear, though outgoing updates are always use `@S`:
 
 ```
 @S:(callsign):(squawk):(rating):(lat):(lon):(alt):(groundspeed):(num1):(num2) 
@@ -15,6 +15,8 @@ Aircraft updates (both outgoing and incoming) are prefixed with `@S` or `@N`. Th
 ```
 @N:(callsign):(squawk):(rating):(lat):(lon):(alt):(groundspeed):(num1):(num2) 
 ```
+
+A squawk code of `7500` (aircraft hijacking) will result in an immediate disconnection from the server.
 
 The meaning of the following fields is unclear:
 
@@ -31,4 +33,4 @@ ATC updates are prefixed with `%`:
 %(callsign):(freq):(altitude):100:1:(lat):(lon)
 ```
 
-ATC stations and observers also have a location and altitude associated with them.
+ATC stations and observers also have a location and altitude associated with them, even though they do not move throughout a session.
