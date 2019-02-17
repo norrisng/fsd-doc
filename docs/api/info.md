@@ -248,6 +248,37 @@ These are usually seen on initial login.
 
 A pilot may file a flight plan as follows:
 
+
+
+### IVAO ###
+
+IVAO's flightplan format is more detailed, and is based on the [ICAO international flight plan [PDF, page 2]](https://www.faa.gov/documentLibrary/media/Form/FAA_7233-4_PRA_07-31-2017.pdf).
+
+Please refer to [IVAO documents [PDF]](https://www.ivao.aero/training/documentation/books/SPP_ADC_Flightplan_Understanding.pdf) on what to include in each field.
+
+```
+$FP(callsign):SERVER:(VFR/IFR):(acft):(spd):(origin):(sched dep):1000:(crz alt):(dest):(EET):(FOB):0:0::(remarks):(alt airport):S:0:
+```
+
+| Placeholder   | details                                                      |
+| ------------- | ------------------------------------------------------------ |
+| `(VFR/IFR)`   | `V` or `I`                                                   |
+| `(acft)`      | Aircraft and equipment, in the format `#/(model)/(turb)-(equip)/(xpdr)` (e.g. `1/B738/M-SDE2E3FGHIRWXY/LB1`). Please refer to the [IVAO documents [PDF]](https://www.ivao.aero/training/documentation/books/SPP_ADC_Flightplan_Understanding.pdf) for further details. |
+| `(spd)`       | Cruising airspeed, in knots. Prefixed with `K` (km/h) `N` (knots), or `M` (Mach). `K` /`N` are always 4-digit, and `M` is 3 digits without the decimal (e.g. M082 = Mach 0.82) |
+| `(sched dep)` | Scheduled departure; e.g. ` 2215` or 10:15pm Z               |
+| `(crz alt)`   | Cruising level. Prefixed with `F` (flight level in feet), `S` (metric flight level in x10 metres), `A` (altitude in x100 feet), `M` (altitude in x10 metres), or `VFR` (VFR flight with no specific altitude) |
+| `(EET)`       | Estimated enroute time; e.g. `1:37`                          |
+| `(FOB)`       | Fuel on board; e.g. `2:30`                                   |
+
+*Further clarification is required on some fields.*
+
+
+
+
+### VATSIM ###
+
+VATSIM's flightplan format is simpler, and is based on the [FAA domestic flight plan [PDF]](https://www.faa.gov/documentLibrary/media/Form/FAA_Form_7233-1_7_31_17.pdf).
+
 ```
 $FP(callsign):*A:(VFR/IFR):(acft type):(spd):(origin):(sched dep):(sched dep):(alt):(dest):(EET):(FOB):(alt airport):(remarks)
 ```
@@ -260,8 +291,6 @@ $FP(callsign):*A:(VFR/IFR):(acft type):(spd):(origin):(sched dep):(sched dep):(a
 | `(sched dep)` | Scheduled departure; e.g. ` 2215` or 10:15pm Z              |
 | `(EET)`       | Estimated enroute time; e.g. `1:37`                         |
 | `(FOB)`       | Fuel on board; e.g. `2:30`                                  |
-
-*IVAO's format likely differs, but this has not been investigated in detail.*
 
 
 
