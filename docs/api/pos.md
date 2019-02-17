@@ -6,7 +6,7 @@ Position updates are sent every 5 seconds.
 
 ## Pilots ##
 
-Aircraft updates (both outgoing and incoming) are prefixed with `@S` or `@N`. The distinction between the two is unclear:
+Aircraft updates (both outgoing and incoming) are prefixed with `@S` or `@N`. The distinction between the two is unclear, though outgoing updates are always use `@S`:
 
 ```
 @S:(callsign):(squawk):(rating):(lat):(lon):(alt):(groundspeed):(num1):(num2) 
@@ -31,4 +31,4 @@ ATC updates are prefixed with `%`:
 %(callsign):(freq):(altitude):100:1:(lat):(lon)
 ```
 
-ATC stations and observers also have a location and altitude associated with them.
+ATC stations and observers also have a location and altitude associated with them, even though they do not move throughout a session.
