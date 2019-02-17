@@ -16,6 +16,8 @@ Aircraft updates (both outgoing and incoming) are prefixed with `@S` or `@N`. Th
 @N:(callsign):(squawk):(rating):(lat):(lon):(alt):(groundspeed):(num1):(num2) 
 ```
 
+A squawk code of `7500` (aircraft hijacking) will result in an immediate disconnection from the server.
+
 The meaning of the following fields is unclear:
 
 * `(num1)` is a 10-digit number.  It seems to begin with 4.
