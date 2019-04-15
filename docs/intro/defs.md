@@ -8,7 +8,7 @@
 | Frequency (freq)                | The network analogue to VHF frequencies used for aircraft radio communication. For the purposes of FSD, observers are always tuned to **199.998 MHz**. |
 | Latitude (lat), longitude (lon) | Latitude and longitude. They have a precision of 5 decimal places. |
 | Network ID                      | A unique ID used by the network. For VATSIM, it is the CID; for IVAO, the VID. |
-| Protocol version                | The version of FSD being used by the client. As of the time of writing, VATSIM uses `100`, while IVAO uses `B`. |
+| Protocol version                | The version of FSD being used by the client. As of the time of writing, <br />VATSIM uses `100`, while IVAO uses `B` (all clients except IVAC 2) or `C` (IVAC 2). |
 | Rating                          | The ATC or pilot rating, as assigned by the network. This is stored as an integer; the lowest rating is `1`. Examples: S1/C2/C3, AS3/ADC, FS3/SPP, etc. |
 | Server                          | A FSD server.                                                |
 | Packet                          | A formatted unit of data sent over an FSD network.           |

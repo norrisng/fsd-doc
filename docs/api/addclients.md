@@ -13,7 +13,7 @@ It is unknown as to what `100` represents, but it appears that all clients share
 ### ATC ###
 
 ```
-#AA(callsign):SERVER:(real name):(network ID)::(rating):100
+#AA(callsign):SERVER:(real name):(network ID)::(rating):(protocol version)
 ```
 
 ### Pilots ###
