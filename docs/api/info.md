@@ -18,11 +18,13 @@ $CR(requestee):(requester):(command):(data)
 
 ## Commands ##
 
-### `ACC` - Aircraft configuration ###
+### `ACC` - Aircraft configuration (VATSIM only) ###
 
 Returns the current configuration (i.e. flaps, landing gear, lights etc.) of the requested callsign's aircraft. Requests and responses are formatted in JSON.
 
 `ACC` data is received for all aircraft within visibility range, even if not requested.
+
+IVAO does not appear to have an equivalent command at all.
 
 **Note:** the formatted fields below contain only the `(data)` field.
 
