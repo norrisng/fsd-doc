@@ -28,8 +28,12 @@ This is stored as an integer inside `cert.txt` on the server, but is advertised 
 | ---------------- | ------------- | ----------- |
 | 1                | OBS           | AS1         |
 | 2                | S1            |             |
-| 3                | S3            |             |
-| 5                | SUP           |             |
+| 3                | S2            |             |
+| 4                | S3            |             |
+| 5                | C1            |             |
+| 8                | I1            |             |
+| 10               | I3            |             |
+
 
 ## Pilot ratings ##
 
