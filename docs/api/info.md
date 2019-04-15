@@ -84,7 +84,7 @@ Returns the requested callsign's voice server URL and ATIS message. This is only
 
 Each controller has an "ATIS" field associated with it. This field is essentially a user-defined information box. It does not contain the airfield ATIS, unless it belongs to an ATIS station (see below).
 
-Actual airfield ATISes are implemented by means of an additional online station with the callsign `ICAO_ATIS`. Its ATIS field contains the actual ATIS. A computer-generated voice is broadcast on Its voice channel to simulate voice ATIS.
+On VATSIM, actual airfield ATISes are implemented by means of an additional online station with the callsign `ICAO_ATIS`. Its ATIS field contains the actual ATIS, and a computer-generated voice is broadcast on Its voice channel to simulate voice ATIS.
 
 **Request:**
 
