@@ -19,7 +19,7 @@ It is unknown as to what `100` represents, but it appears that all clients share
 ### Pilots ###
 
 ```
-#AP(callsign):SERVER:(network ID)::1:100:(rating):(real name ICAO)
+#AP(callsign):SERVER:(network ID)::1:(protocol version):(rating):(real name ICAO)
 ```
 
 
