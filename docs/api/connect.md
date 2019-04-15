@@ -50,6 +50,7 @@ Client ID | Client string
 --------- | -------------
 `69d7`   | EuroScope 3.2 
 `88e4`   | vPilot 
+`48e2` | Swift 
 `de1e`   | VRC 
 
 
