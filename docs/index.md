@@ -62,5 +62,3 @@ VATSIM uses static IPs. These IPs can be found at any of the URLs starting with 
 ## Contributing ##
 
 Have something you'd like to add to the documentation? Just fork and create a pull request on the [GitHub repository](https://github.com/norrisng/fsd-doc/). 
-
-(I haven't set up the repository yet. This will come soon!)
