@@ -2,7 +2,7 @@
 
 Welcome to the unofficial documentation of FSD, the protocol behind the [IVAO](http://ivao.aero/) and [VATSIM](http://vatsim.net/) online networks. 
 
-This documentation was created during the reverse engineering process for [FCOM](https://github.com/norrisng/FcomClient/), which forwards messages to a web server. [FCOM's implementation of this server](https://github.com/norrisng/FcomServer/) forwards it over Discord DM, but it's entirely possible to write a server that does anything it wants (which may or may not involve forwarding) with the forwarded messages.
+This documentation was created during the reverse engineering process for [FCOM](https://norrisng.ca/fcom), which forwards messages to a web server. [FCOM's implementation of this server](https://github.com/norrisng/FcomServer/) forwards it over Discord DM, but it's entirely possible to write a server that does anything it wants (which may or may not involve forwarding) with the forwarded messages.
 
 **Note:** information may change as new information regarding FSD is discovered. This document is currently heavily focused on VATSIM's implementation (which is much "heavier" than IVAO's), but this will change in the future as I figure out which parts are unique to either network.
 
@@ -53,9 +53,9 @@ As is the case with anything on the [application layer](https://en.wikipedia.org
 telnet (server address) 6809
 ```
 
-IVAO uses `eu*.ivan.ivao.aero` (replace `*` with the server number). A list of servers can be found at https://heartbeat.ivao.aero/ .
+IVAO uses `eu*.ivan.ivao.aero` (replace `*` with the server number). A list of servers can be found at [heartbeat.ivao.aero](https://heartbeat.ivao.aero/) .
 
-VATSIM uses static IPs. These IPs can be found at any of the URLs starting with `url1` at https://status.vatsim.net/. As of the time of writing, two mirrors are available ([hardern.net](http://vatsim-data.hardern.net/vatsim-servers.txt), [vroute.net](http://info.vroute.net/vatsim-servers.txt))
+VATSIM uses static IPs. These IPs can be found at any of the URLs starting with `url1` at [status.vatsim.net](https://status.vatsim.net/). As of the time of writing, two mirrors are available ([hardern.net](http://vatsim-data.hardern.net/vatsim-servers.txt), [vroute.net](http://info.vroute.net/vatsim-servers.txt))
 
 
 
