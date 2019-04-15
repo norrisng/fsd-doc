@@ -216,13 +216,13 @@ However, this does not seem to be the case in IVAO. To correctly escape colons, 
 
 
 
-### Receipt of flight plan (VATSIM) ###
+### Flight plan acknowledgement (VATSIM) ###
 
 ```
 #TM(own callsign):FP:(flightplan callsign) GET
 ```
 
-Once the client receives a flight plan, it shall immediately notify `FP` of such. The reason for this is unknown.
+Once the client receives a flight plan, it shall acknowledge it using the above command. The reason for this is unknown.
 
 The server will then acknowledge with the following:
 
@@ -298,4 +298,5 @@ $FP(callsign):*A:(VFR/IFR):(acft type):(spd):(origin):(sched dep):(sched dep):(a
 
 Flight plan packets are sent to all other clients on the server, even if not requested.
 
-On VATSIM, once such a packet has been received, the client notifies the server of such (see "Receipt of flight plan (VATSIM)" under "Text messages" on this page).
+On VATSIM, once such a packet has been received, the client acknowledges it (see "Receipt of flight plan (VATSIM)" under "Text messages" on this page).
+
