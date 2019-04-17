@@ -22,9 +22,11 @@ $CR(requestee):(requester):(command):(data)
 
 Returns the current configuration (i.e. flaps, landing gear, lights etc.) of the requested callsign's aircraft. Requests and responses are formatted in JSON.
 
-`ACC` data is received for all aircraft within visibility range, even if not requested.
+`ACC` data is received for all aircraft within visibility range, even if not requested. 
 
-IVAO does not appear to have an equivalent command at all.
+It may also be sent by a client uninitiated at any time (e.g. if the user extends/retracts flaps). In such a case, the `ACC` packet is addressed to `@94836`.
+
+IVAO does not appear to have an equivalent command.
 
 **Note:** the formatted fields below contain only the `(data)` field.
 
@@ -36,11 +38,11 @@ IVAO does not appear to have an equivalent command at all.
 {"request":"full"} 
 ```
 
-*All `ACC` requests contain the exact JSON string specified above.*
+*All `ACC` requests from other users contain this exact JSON string .*
 
 
 
-**Response:**
+**Sample response:**
 
 For some reason, `ACC` responses are prefixed with `$CQ`, and **not** `$CR` (as would be expected for a response):
 
@@ -74,7 +76,7 @@ For some reason, `ACC` responses are prefixed with `$CQ`, and **not** `$CR` (as 
 
 *Line breaks have been inserted for readability. They are not present in the actual packets.*
 
-JSON fields may be omitted as desired.
+If the `ACC` packet is being sent by the client uninitiated, then JSON fields may be omitted as desired.
 
 
 
