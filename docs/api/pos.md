@@ -30,7 +30,7 @@ The meaning of the following fields is unclear:
 ATC updates are prefixed with `%`:
 
 ```
-%(callsign):(freq):(altitude):(protocol version):1:(lat):(lon)
+%(callsign):(freq):(altitude):(protocol version):(rating):(lat):(lon)
 ```
 
 ATC stations and observers also have a location and altitude associated with them, even though they do not move throughout a session.
