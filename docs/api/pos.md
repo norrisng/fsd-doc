@@ -9,14 +9,26 @@ Position updates are sent every 5 seconds.
 Aircraft updates (both outgoing and incoming) are prefixed with `@S` or `@N`. The distinction between the two is unclear:
 
 ```
-@S:(callsign):(squawk):(rating):(lat):(lon):(alt):(groundspeed):(num1):(num2) 
+@(mode):(callsign):(squawk):(rating):(lat):(lon):(alt):(groundspeed):(num1):(num2) 
 ```
 
-```
-@N:(callsign):(squawk):(rating):(lat):(lon):(alt):(groundspeed):(num1):(num2) 
-```
+### Transponder mode ###
+
+`(mode)` refers to the transponder mode. It consists of a single letter:
+
+| Mode | Description  |
+| ---- | ------------ |
+| S    | Standby      |
+| N    | Mode C       |
+| Y    | Squawk ident |
+
+Regardless of transponder mode, the altitude is always included in a position update.
+
+### Squawk code ###
 
 A squawk code of `7500` (aircraft hijacking) will result in an immediate disconnection from the server.
+
+### Unknown fields ###
 
 The meaning of the following fields is unclear:
 
