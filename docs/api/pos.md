@@ -14,7 +14,7 @@ Aircraft updates (both outgoing and incoming) are prefixed with `@S` or `@N`. Th
 
 ### Transponder mode ###
 
-`(mode)`refers to the transponder mode. It consists of a single letter:
+`(mode)` refers to the transponder mode. It consists of a single letter:
 
 | Mode | Description  |
 | ---- | ------------ |
@@ -24,7 +24,11 @@ Aircraft updates (both outgoing and incoming) are prefixed with `@S` or `@N`. Th
 
 Regardless of transponder mode, the altitude is always included in a position update.
 
+### Squawk code ###
+
 A squawk code of `7500` (aircraft hijacking) will result in an immediate disconnection from the server.
+
+### Unknown fields ###
 
 The meaning of the following fields is unclear:
 
