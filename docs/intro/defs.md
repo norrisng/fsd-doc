@@ -32,9 +32,13 @@ This is stored as an integer inside `cert.txt` on the server, but is advertised 
 | 3                | S2            | AS2         |
 | 4                | S3            | AS3         |
 | 5                | C1            | ADC         |
-| 7                |               | ACC         |
+| 6                | C2            |             |
+| 7                | C3            | ACC         |
 | 8                | I1            |             |
+| 9                | I2            |             |
 | 10               | I3            |             |
+| 11               | SUP           |             |
+| 12               | ADM           |             |
 
 
 ## Pilot ratings ##
