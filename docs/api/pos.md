@@ -6,7 +6,7 @@ Position updates are sent every 5 seconds.
 
 ## Pilots ##
 
-Aircraft updates (both outgoing and incoming) are prefixed with `@S` or `@N`. The distinction between the two is unclear:
+Pilot position updates are prefixed with `@`:
 
 ```
 @(mode):(callsign):(squawk):(rating):(lat):(lon):(alt):(groundspeed):(num1):(num2) 
