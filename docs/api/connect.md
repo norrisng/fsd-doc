@@ -62,22 +62,21 @@ The format varies slightly between pilots and ATC:
 ### ATC ###
 
 ```
-#AA(callsign):SERVER:(full name):(network ID):(password):(num1):(num2)
+#AA(callsign):SERVER:(full name):(network ID):(password):(num1):(protocol version)
 ```
 
 The meaning of the following fields is unclear:
 
-| Field    | Examples   | Possible meaning |
-| -------- | ---------- | ---------------- |
-| `(num1)` | `1`, `12`  | ATC rating       |
-| `(num2)` | `100`, `B` | Visibility range |
+| Field    | Examples  | Possible meaning |
+| -------- | --------- | ---------------- |
+| `(num1)` | `1`, `12` | ATC rating       |
 
 
 
 ### Pilot ###
 
 ```
-#AP(callsign):SERVER:(network ID):(password):(num1):(num2):(num3):(full name ICAO)
+#AP(callsign):SERVER:(network ID):(password):(num1):(protocol version):(num2):(full name ICAO)
 ```
 
 The meaning of the following fields is unclear:
@@ -85,8 +84,7 @@ The meaning of the following fields is unclear:
 | Field    | Examples   | Possible meaning |
 | -------- | ---------- | ---------------- |
 | `(num1)` | `1`, `11`  | Pilot rating     |
-| `(num2)` | `100`, `B` | Visibility range |
-| `(num3)` | `2`, `30`  | Unknown          |
+| `(num2)` | `2`, `30`  | Unknown          |
 
 
 
