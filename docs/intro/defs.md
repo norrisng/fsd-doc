@@ -27,11 +27,12 @@ This is stored as an integer inside `cert.txt` on the server, but is advertised 
 
 | `cert.txt` value | VATSIM rating | IVAO rating |
 | ---------------- | ------------- | ----------- |
-| 1                | OBS           | AS1         |
-| 2                | S1            |             |
-| 3                | S2            |             |
-| 4                | S3            |             |
-| 5                | C1            |             |
+| 1                | OBS           |             |
+| 2                | S1            | AS1         |
+| 3                | S2            | AS2         |
+| 4                | S3            | AS3         |
+| 5                | C1            | ADC         |
+| 7                |               | ACC         |
 | 8                | I1            |             |
 | 10               | I3            |             |
 
@@ -41,6 +42,13 @@ This is stored as an integer inside `cert.txt` on the server, but is advertised 
 | `cert.txt` value | VATSIM rating | IVAO rating |
 | ---------------- | ------------- | ----------- |
 | 1                | No rating     |             |
-| ...              | ...           |             |
+| 2                |               | FS1         |
+| 3                |               | FS2         |
+| 4                |               | FS3         |
+| 5                |               | PP          |
+| 6                |               | SPP         |
+| 7                |               | CP          |
+| 8                |               | ATP         |
+| 9                |               | SFI         |
+| 10               |               |             |
 | 11               | P1            |             |
-|                  |               |             |
