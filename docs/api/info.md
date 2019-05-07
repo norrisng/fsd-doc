@@ -109,6 +109,26 @@ $CR(requestee):(requester):ATIS:E:(total number of lines, including this line)
 
 
 
+### `C?` - Tuned frequency [IVAO only] ###
+
+Returns the radio frequency the user is tuned to.
+
+**Request:**
+
+```
+$CQ(requestee):(requester):C?
+```
+
+**Response:**
+
+```
+$CR(requestee):(requester):C?:(frequency)
+```
+
+The frequency is formatted as `xxx.yyy` (e.g. 122.800)
+
+
+
 ### `CAPS` - Client capabilities ###
 
 Returns a list of the client's capabilities. It is unclear as to what these capabilities are, as pilots and ATC stations appear to return the exact same values.
