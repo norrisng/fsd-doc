@@ -1,4 +1,4 @@
-# Connecting to a FSD server 
+# Connecting to a FSD server
 
 ## Pre-login identification (VATSIM only) ##
 
@@ -48,10 +48,11 @@ The following are a list of known client IDs:
 
 Client ID | Client string
 --------- | -------------
-`69d7`   | EuroScope 3.2 
-`88e4`   | vPilot 
-`48e2` | Swift 
-`de1e`   | VRC 
+`69d7` | EuroScope 3.2
+`88e4` | vPilot
+`48e2` | Swift
+`de1e` | VRC
+`d8f2` | xPilot
 
 
 
@@ -116,13 +117,7 @@ If the login is successful, the server returns a pre-defined message, encoded as
 #### VATSIM ####
 
 ```
-#TMserver:(callsign):By using your VATSIM assigned identification number on this server you 
-#TMserver:(callsign):hereby agree to the terms of the VATSIM Code of Regulations and the 
-#TMserver:(callsign):VATSIM User Agreement and the VATSIM Code of Conduct which may be viewed 
-#TMserver:(callsign):at http://www.vatsim.net/network/docs/ 
-#TMserver:(callsign):All logins are tracked and identification numbers are recorded. 
-#TMserver:(callsign):Users must enter their real full first names and surnames when logging 
-#TMserver:(callsign):onto any of the VATSIM.net servers. 
+#TMserver:(callsign):Welcome back to VATSIM! Our new voice technology is now live - if you have any questions or need support visit vats.im/audio for required downloads, instructions and tutorial videos. If you need further support visit the Audio for VATSIM forums at vats.im/afv
 ```
 
 
@@ -220,4 +215,3 @@ Client response:
 ```
 $CR(callsign):SERVER:CAPS:VERSION=1:ATCINFO=1:MODELDESC=1:ACCONFIG=1
 ```
-
