@@ -22,7 +22,7 @@ $CR(requestee):(requester):(command):(data)
 
 Returns the current configuration (i.e. flaps, landing gear, lights etc.) of the requested callsign's aircraft. Requests and responses are formatted in JSON.
 
-`ACC` data is received for all aircraft within visibility range, even if not requested. 
+`ACC` data is received for all aircraft within visibility range, even if not requested.
 
 It may also be sent by a client uninitiated at any time (e.g. if the user extends/retracts flaps). In such a case, the `ACC` packet is addressed to `@94836`.
 
@@ -35,7 +35,7 @@ IVAO does not appear to have an equivalent command.
 **Request:**
 
 ```json
-{"request":"full"} 
+{"request":"full"}
 ```
 
 *All `ACC` requests from other users contain this exact JSON string .*
@@ -152,7 +152,7 @@ $CR(requestee):(requester):RN:(real name):(ATC sector file):(rating)
 Pilot:
 
 ```
-$CR(requestee):(requester):RN:(real name ICAO)::(rating) 
+$CR(requestee):(requester):RN:(real name ICAO)::(rating)
 ```
 
 
@@ -168,7 +168,7 @@ The following commands are only sent/received by the server. The sending/receivi
 **Request:**
 
 ```
-$CQDATA:(recipient):INF 
+$CQDATA:(recipient):INF
 ```
 
 
@@ -176,7 +176,7 @@ $CQDATA:(recipient):INF
 **Response:**
 
 ```
-#TM(callsign):DATA:(client string) PID=(CID) ((Real name ICAO)) IP=(IP address) SYS_UID=(uid) FSVER=(sim) LT=(lat) LO=(lon) AL=(alt) 
+#TM(callsign):DATA:(client string) PID=(CID) ((Real name ICAO)) IP=(IP address) SYS_UID=(uid) FSVER=(sim) LT=(lat) LO=(lon) AL=(alt)
 ```
 
 * `SYS_UID` is a 9-digit number. It appears to be a negative value.
@@ -202,7 +202,7 @@ The following recipients are treated differently:
 | Recipient | Meaning                                                      |
 | --------- | ------------------------------------------------------------ |
 | `@xxyyy`  | Sends the message over the frequency **1xx.yyy MHz**, instead of PM. |
-| `*`       | Broadcast message, received by everyone on the network. <br /><br />IVAO and VATSIM restrict this functionality to supervisors and administrators, but it is unknown if this is enforced server-side. |
+| `*`       | Broadcast message, received by everyone on the network. <br /><br />IVAO and VATSIM restrict this functionality to users with the supervisor rating and above. When an underqualified user attempts to send a broadcast message, the server replies with a syntax error `$ER` packet. |
 
 If `(sender)` and `(recipient)` are not online callsigns, then the text message represents additional background functionality that the average user does not see or deal with. It is used by VATSIM to hack in additional functionality (see below), without making major modifications to the protocol.
 
@@ -248,7 +248,7 @@ These are usually seen on initial login.
 
 
 
-## Flight plans ##
+## Pilot flight plans ##
 
 A pilot may file a flight plan as follows:
 
@@ -284,21 +284,71 @@ $FP(callsign):SERVER:(VFR/IFR):(acft):(spd):(origin):(sched dep):1000:(crz alt):
 VATSIM's flightplan format is simpler, and is based on the [FAA domestic flight plan [PDF]](https://www.faa.gov/documentLibrary/media/Form/FAA_Form_7233-1_7_31_17.pdf).
 
 ```
-$FP(callsign):*A:(VFR/IFR):(acft type):(spd):(origin):(sched dep):(sched dep):(alt):(dest):(EET):(FOB):(alt airport):(remarks)
+$FP(callsign):*A:(VFR/IFR):(acft type):(spd):(origin):(sched dep):(sched dep):(alt):(dest):(EET):(FOB):(alt airport):(remarks):(route)
 ```
 
-| Placeholder   | details                                                     |
+| Placeholder   | Details                                                     |
 | ------------- | ----------------------------------------------------------- |
 | `(VFR/IFR)`   | `V` or `I`                                                  |
-| `(acft type`) | includes FAA prefixes/suffixes, if present; e.g. `H/B77W/L` |
+| `(acft type)` | Includes FAA prefixes/suffixes, if present; e.g. `H/B77W/L` |
 | `(spd)`       | Ground speed, in knots                                      |
 | `(sched dep)` | Scheduled departure; e.g. ` 2215` or 10:15pm Z              |
 | `(EET)`       | Estimated enroute time; e.g. `1:37`                         |
 | `(FOB)`       | Fuel on board; e.g. `2:30`                                  |
 
 
-
 Flight plan packets are sent to all other clients on the server, even if not requested.
 
 On VATSIM, once such a packet has been received, the client acknowledges it (see "Receipt of flight plan (VATSIM)" under "Text messages" on this page).
 
+## ATC flight plans (VATSIM) ##
+
+On VATSIM, an ATC client may edit an aircraft's flight plan as follows:
+
+### Flightplan amendment ###
+
+The flightplan amendment packet _does not include scratchpads or squawk assignments_. For those 2 separate packets, see the next 2 sections.
+
+```
+$AM(atc callsign):SERVER:(target callsign):(VFR/IFR):(acft type):(spd):(origin):(sched dep):(sched arr):(cruise alt):(destination):(num1):(num2):(num3):(num4):(alternate):(remarks):(route)
+```
+
+| Placeholder         | Details                                                             |
+| ------------------- | ------------------------------------------------------------------- |
+| `(atc callsign)`    | The callsign of the ATC client who creates/sends the amendment packet. |
+| `(target callsign)` | The callsign that's being given the amended flightplan.             |
+| `(VFR/IFR)`         | `V` or `I`                                                          |
+| `(acft type`)       | Includes FAA prefixes/suffixes, if present; e.g. `H/B77W/L`         |
+| `(spd)`             | Ground speed, in knots                                              |
+| `(sched dep)`       | Scheduled departure; e.g. ` 2215` or 10:15pm Z                      |
+| `(num1)` - `(num4)` | Unknown. This most likely contains EET, FOB, and 2 other fields.    |
+
+### Squawk assignments ###
+
+The following packets are sent to the server when an ATC client assigns a transponder code to an aircraft:
+
+```
+$CQ(callsign):@94835:BC:(target callsign):(code)
+```
+
+`(target callsign)` is the callsign that's being given the new squawk assignment.
+
+`(code)` is the 4 digit transponder code being assigned to `(target callsign)`
+
+```
+#TM(callsign):FP:(target callsign) SET (code)
+```
+
+This next packet prefixed with `#TM` seems to be sent directly after the first squawk assignment packet is sent. The recipient `FP` may be an automatic service on the network that could handle automatic tasks, like statistics.
+
+### ATC scratchpads ###
+
+The following packet is sent to the server when an ATC client sets a scratchpad for an aircraft:
+
+```
+$CQ(callsign):@94835:SC:(target callsign):(scratchpad)
+```
+
+`(target callsign)` is the callsign that's being given the new scratchpad.
+
+`(scratchpad)` is the new scratchpad string being assigned to `(target callsign)`. This can include uppercase and lowercase characters, along with numbers. The maximum length of this string that VATSIM seems to allow/support is 4 characters.
