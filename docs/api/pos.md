@@ -28,7 +28,7 @@ Regardless of transponder mode, the altitude is always included in a position up
 
 A squawk code of `7500` (aircraft hijacking) will result in an immediate disconnection from the server.
 
-### Unknown fields ###
+### Now-Clear 'Unknown' fields answered by phoudoin ###
 
 > (num1) = pitch / bank / heading / onground value
 > a decimal sent as string whose value is the following unsigned 32bits binary number:
