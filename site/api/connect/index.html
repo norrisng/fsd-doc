@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Connecting - FSD (unofficial)</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Connecting";
+    var mkdocs_page_input_path = "api\\connect.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> FSD (unofficial)</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Preface</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../intro/preface/">Preamble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../intro/legal/">Legal</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../intro/gpl/">License</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Introduction</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../intro/defs/">Terms used</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../intro/overview/">Overview of FSD</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Reference</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../packet/">FSD packet</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Connecting</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#pre-login-identification-vatsim-only">Pre-login identification (VATSIM only)</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#server">Server</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#client">Client</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#client-id-and-string">Client ID and string</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#login">Login</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#atc">ATC</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pilot">Pilot</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#post-login">Post-login</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#message-of-the-day">Message of the Day</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#ivao">IVAO</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#vatsim">VATSIM</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#post-login-setup">Post-login setup</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#ivao_1">IVAO</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#vatsim_1">VATSIM</a>
+    </li>
+        </ul>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../addclients/">Adding/removing clients</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../pos/">Position updates</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../metar/">METAR</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../info/">Sending/receiving info</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../others/">Other packets</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../logoff/">Logging off</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">FSD (unofficial)</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Reference &raquo;</li>
+        
+      
+    
+    <li>Connecting</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="connecting-to-a-fsd-server">Connecting to a FSD server</h1>
+<h2 id="pre-login-identification-vatsim-only">Pre-login identification (VATSIM only)</h2>
+<p><strong>Note:</strong> IVAO does not implement this form of identification. The client initiates communication after the TCP connection is established (see the "Login" section).</p>
+<h3 id="server">Server</h3>
+<p>Once the connection is established, the server identifies itself using the <code>$DI</code> prefix:</p>
+<pre><code>$DISERVER:CLIENT:VATSIM FSD V3.13:(token)
+</code></pre>
+<p><code>(token)</code> is a 22-character hexadecimal string that changes on every login. The mechanism behind its generation is unknown.</p>
+<h3 id="client">Client</h3>
+<p>The client must then identify itself using the <code>$ID</code> prefix before continuing:</p>
+<pre><code>$ID(callsign):SERVER:(client id):(client string):3:2:(network ID):(num)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>(callsign)</code></td>
+<td>The callsign to log in as.</td>
+</tr>
+<tr>
+<td><code>(client id)</code></td>
+<td>A 4-character hexadecimal string that identifies the client. See next subsection for details.</td>
+</tr>
+<tr>
+<td><code>(client string)</code></td>
+<td>A human-readable string that identifies the client in use.</td>
+</tr>
+<tr>
+<td><code>(network ID)</code></td>
+<td>VATSIM CID.</td>
+</tr>
+<tr>
+<td><code>(num)</code></td>
+<td>A user-unique signed 9-digit number. It is unclear if it is linked to the client's hardware.</td>
+</tr>
+</tbody>
+</table>
+<h3 id="client-id-and-string">Client ID and string</h3>
+<p>VATSIM servers appear to contain a whitelist of client IDs. Connections using non-whitelisted client IDs will be closed by the server:</p>
+<pre><code>$ERserver:unknown:016::Unauthorized client software
+</code></pre>
+<p>The client string is not used by the server to identify the client software. It is merely a human-readable string for readability purposes.</p>
+<p>The following are a list of known client IDs:</p>
+<table>
+<thead>
+<tr>
+<th>Client ID</th>
+<th>Client string</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>69d7</code></td>
+<td>EuroScope 3.2</td>
+</tr>
+<tr>
+<td><code>88e4</code></td>
+<td>vPilot</td>
+</tr>
+<tr>
+<td><code>48e2</code></td>
+<td>Swift</td>
+</tr>
+<tr>
+<td><code>de1e</code></td>
+<td>VRC</td>
+</tr>
+</tbody>
+</table>
+<h2 id="login">Login</h2>
+<p>The format varies slightly between pilots and ATC:</p>
+<h3 id="atc">ATC</h3>
+<pre><code>#AA(callsign):SERVER:(full name):(network ID):(password):(num1):(protocol version)
+</code></pre>
+<p>The meaning of the following fields is unclear:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Examples</th>
+<th>Possible meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>(num1)</code></td>
+<td><code>1</code>, <code>12</code></td>
+<td>ATC rating</td>
+</tr>
+</tbody>
+</table>
+<h3 id="pilot">Pilot</h3>
+<pre><code>#AP(callsign):SERVER:(network ID):(password):(num1):(protocol version):(num2):(full name ICAO)
+</code></pre>
+<p>The meaning of the following fields is unclear:</p>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Examples</th>
+<th>Possible meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>(num1)</code></td>
+<td><code>1</code>, <code>11</code></td>
+<td>Pilot rating</td>
+</tr>
+<tr>
+<td><code>(num2)</code></td>
+<td><code>2</code>, <code>30</code></td>
+<td>Unknown</td>
+</tr>
+</tbody>
+</table>
+<h2 id="post-login">Post-login</h2>
+<h3 id="message-of-the-day">Message of the Day</h3>
+<p>If the login is successful, the server returns a pre-defined message, encoded as private messages sent from <code>SERVER</code>.</p>
+<h4 id="ivao">IVAO</h4>
+<pre><code>#TMSERVER:(callsign):IVAO FSD Server B.06k - (c)1996-2016 Filip Jonckers, Kenny Moens, Ken Andries - limited license, usage granted to International Virtual Aviation Organisation VZW
+#TMSERVER:(callsign):Welcome to the IVAO - Europe (a) - Network Server
+#TMSERVER:(callsign):Please visit www.ivao.aero for further info.
+#TMSERVER:(callsign):You are now online and connected, have fun.
+#TMSERVER:(callsign):You are (b)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Information</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>(a)</code></td>
+<td>IVAO server number (e.g. <code>4</code> for EU4)</td>
+</tr>
+<tr>
+<td><code>(b)</code></td>
+<td>User's ATC or Pilot rating; e.g. <code>Pilot Rating FS3</code>, <code>ATC Rating AS3</code></td>
+</tr>
+</tbody>
+</table>
+<h4 id="vatsim">VATSIM</h4>
+<pre><code>#TMserver:(callsign):By using your VATSIM assigned identification number on this server you 
+#TMserver:(callsign):hereby agree to the terms of the VATSIM Code of Regulations and the 
+#TMserver:(callsign):VATSIM User Agreement and the VATSIM Code of Conduct which may be viewed 
+#TMserver:(callsign):at http://www.vatsim.net/network/docs/ 
+#TMserver:(callsign):All logins are tracked and identification numbers are recorded. 
+#TMserver:(callsign):Users must enter their real full first names and surnames when logging 
+#TMserver:(callsign):onto any of the VATSIM.net servers. 
+</code></pre>
+<h3 id="post-login-setup">Post-login setup</h3>
+<h4 id="ivao_1">IVAO</h4>
+<p>The client then provides information to the server about itself:</p>
+<pre><code>!C(callsign):SERVER:(rating):(num1):(client):(client version):(num2)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Field</th>
+<th>Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>(callsign)</code></td>
+<td>User's callsign.</td>
+</tr>
+<tr>
+<td><code>(rating)</code></td>
+<td>User's rating, as an integer (see "Terms Used" under "Introduction")</td>
+</tr>
+<tr>
+<td><code>(num1)</code></td>
+<td><em>Unknown.</em></td>
+</tr>
+<tr>
+<td><code>(client)</code></td>
+<td>Name of the client; e.g. <code>IvAp</code>.</td>
+</tr>
+<tr>
+<td><code>(client version)</code></td>
+<td>Client version; e.g. <code>2.0.2</code></td>
+</tr>
+<tr>
+<td><code>(num2)</code></td>
+<td><em>Unknown.</em></td>
+</tr>
+</tbody>
+</table>
+<p>The server replies with some information about the client:</p>
+<pre><code>!RSERVER:(callsign):(rating):(num1):(rating):(num2):(client IP address)
+</code></pre>
+<p>The meaning of <code>(num1)</code> and <code>(num2)</code> is unclear. They are different from <code>(num1)</code> and <code>(num2)</code> in the packet sent before this response.</p>
+<h5 id="atc_1">ATC</h5>
+<p>Prior to the above-mentioned <code>!C</code> packet, ATC clients provide an additional packet on the controller's airfield:</p>
+<pre><code>&amp;D(callsign):SERVER:0:(airport ICAO)
+</code></pre>
+<h5 id="pilot_1">Pilot</h5>
+<p>After the <code>!C</code> packet, the client sends some additional info:</p>
+<pre><code>$NV(callsign):SERVER:(callsign):1
+-PD(callsign):SERVER:(MTL model name)
+-MD(callsign):SERVER:13
+&amp;R(callsign):SERVER:0
+-RF(callsign):SERVER:3:3
+</code></pre>
+<p>The meaning of the trailing numbers is unclear.</p>
+<h4 id="vatsim_1">VATSIM</h4>
+<p>The server requests information on the client's capabilities:</p>
+<h5 id="atc_2">ATC</h5>
+<p>Server request:</p>
+<pre><code>$CQSERVER:(callsign):CAPS
+$CRSERVER:(callsign):ATC:N:(callsign)
+$CRSERVER:(callsign):CAPS:ATCINFO=1:SECPOS=1
+$CRSERVER:(callsign):IP:(client IP address)
+</code></pre>
+<p>The <code>N</code> on the second line <em>may</em> indicate the server indicating that the client is not providing ATC services.</p>
+<p>Client response:</p>
+<pre><code>$CR(callsign):SERVER:CAPS:ATCINFO=1:SECPOS=1:MODELDESC=1:ONGOINGCOORD=1
+</code></pre>
+<h5 id="pilot_2">Pilot</h5>
+<p>Server request:</p>
+<pre><code>$CQSERVER:(callsign):CAPS
+$CRSERVER:(callsign):IP:(client IP address)
+$ERserver:(callsign):008:(callsign):No flightplan
+</code></pre>
+<p>Client response:</p>
+<pre><code>$CR(callsign):SERVER:CAPS:VERSION=1:ATCINFO=1:MODELDESC=1:ACCONFIG=1
+</code></pre>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../addclients/" class="btn btn-neutral float-right" title="Adding/removing clients">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../packet/" class="btn btn-neutral" title="FSD packet"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../packet/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../addclients/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Terms used - FSD (unofficial)</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Terms used";
+    var mkdocs_page_input_path = "intro\\defs.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> FSD (unofficial)</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Preface</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../preface/">Preamble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../legal/">Legal</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../gpl/">License</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Introduction</span></p>
+                <ul class="current">
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Terms used</a>
+    <ul class="current">
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../overview/">Overview of FSD</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Reference</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/packet/">FSD packet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/connect/">Connecting</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/addclients/">Adding/removing clients</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/pos/">Position updates</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/metar/">METAR</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/info/">Sending/receiving info</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/others/">Other packets</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../api/logoff/">Logging off</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">FSD (unofficial)</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Introduction &raquo;</li>
+        
+      
+    
+    <li>Terms used</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="definitions">Definitions</h1>
+<table>
+<thead>
+<tr>
+<th>Term</th>
+<th>Definition</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Callsign</td>
+<td>The unique identifier that a client is logged in as; e.g. <code>AAL123</code>, <code>EGLL_TWR</code>, <code>XX_SUP</code>, etc.</td>
+</tr>
+<tr>
+<td>Client</td>
+<td>A pilot or ATC station. For the purposes of FSD, observers are considered to be ATC stations.</td>
+</tr>
+<tr>
+<td>Client string</td>
+<td>A string identifying the client software. This is the FSD equivalent of user agent strings for browsers. Examples include <code>Euroscope 3.2</code>, <code>vPilot</code>, etc.</td>
+</tr>
+<tr>
+<td>Frequency (freq)</td>
+<td>The network analogue to VHF frequencies used for aircraft radio communication. For the purposes of FSD, observers are always tuned to <strong>199.998 MHz</strong>.</td>
+</tr>
+<tr>
+<td>Latitude (lat), longitude (lon)</td>
+<td>Latitude and longitude. They have a precision of 5 decimal places.</td>
+</tr>
+<tr>
+<td>Network ID</td>
+<td>A unique ID used by the network. For VATSIM, it is the CID; for IVAO, the VID.</td>
+</tr>
+<tr>
+<td>Protocol version</td>
+<td>The version of FSD being used by the client. As of the time of writing, <br />VATSIM uses <code>100</code>, while IVAO uses <code>B</code> (all clients except IVAC 2) or <code>C</code> (IVAC 2).</td>
+</tr>
+<tr>
+<td>Rating</td>
+<td>The ATC or pilot rating, as assigned by the network. This is stored as an integer; the lowest rating is <code>1</code>. Examples: S1/C2/C3, AS3/ADC, FS3/SPP, etc.</td>
+</tr>
+<tr>
+<td>Server</td>
+<td>A FSD server.</td>
+</tr>
+<tr>
+<td>Packet</td>
+<td>A formatted unit of data sent over an FSD network.</td>
+</tr>
+</tbody>
+</table>
+<p>Placeholders are indicated using brackets; e.g. <code>(client string)</code>.</p>
+<h1 id="ratings">Ratings</h1>
+<p>Each user has a pilot and ATC rating. </p>
+<p>This is stored as an integer inside <code>cert.txt</code> on the server, but is advertised by IVAO and VATSIM under the following names:</p>
+<h2 id="atc-ratings">ATC ratings</h2>
+<table>
+<thead>
+<tr>
+<th><code>cert.txt</code> value</th>
+<th>VATSIM rating</th>
+<th>IVAO rating</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>OBS</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td>S1</td>
+<td>AS1</td>
+</tr>
+<tr>
+<td>3</td>
+<td>S2</td>
+<td>AS2</td>
+</tr>
+<tr>
+<td>4</td>
+<td>S3</td>
+<td>AS3</td>
+</tr>
+<tr>
+<td>5</td>
+<td>C1</td>
+<td>ADC</td>
+</tr>
+<tr>
+<td>6</td>
+<td>C2</td>
+<td></td>
+</tr>
+<tr>
+<td>7</td>
+<td>C3</td>
+<td>ACC</td>
+</tr>
+<tr>
+<td>8</td>
+<td>I1</td>
+<td></td>
+</tr>
+<tr>
+<td>9</td>
+<td>I2</td>
+<td></td>
+</tr>
+<tr>
+<td>10</td>
+<td>I3</td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>SUP</td>
+<td></td>
+</tr>
+<tr>
+<td>12</td>
+<td>ADM</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+<h2 id="pilot-ratings">Pilot ratings</h2>
+<table>
+<thead>
+<tr>
+<th><code>cert.txt</code> value</th>
+<th>VATSIM rating</th>
+<th>IVAO rating</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>1</td>
+<td>No rating</td>
+<td></td>
+</tr>
+<tr>
+<td>2</td>
+<td></td>
+<td>FS1</td>
+</tr>
+<tr>
+<td>3</td>
+<td></td>
+<td>FS2</td>
+</tr>
+<tr>
+<td>4</td>
+<td></td>
+<td>FS3</td>
+</tr>
+<tr>
+<td>5</td>
+<td></td>
+<td>PP</td>
+</tr>
+<tr>
+<td>6</td>
+<td></td>
+<td>SPP</td>
+</tr>
+<tr>
+<td>7</td>
+<td></td>
+<td>CP</td>
+</tr>
+<tr>
+<td>8</td>
+<td></td>
+<td>ATP</td>
+</tr>
+<tr>
+<td>9</td>
+<td></td>
+<td>SFI</td>
+</tr>
+<tr>
+<td>10</td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td>11</td>
+<td>P1</td>
+<td></td>
+</tr>
+</tbody>
+</table>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../overview/" class="btn btn-neutral float-right" title="Overview of FSD">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../gpl/" class="btn btn-neutral" title="License"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../gpl/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../overview/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>

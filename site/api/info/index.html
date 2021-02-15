@@ -1,0 +1,454 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  
+  
+  
+  <link rel="shortcut icon" href="../../img/favicon.ico">
+  <title>Sending/receiving info - FSD (unofficial)</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700" />
+
+  <link rel="stylesheet" href="../../css/theme.css" />
+  <link rel="stylesheet" href="../../css/theme_extra.css" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/styles/github.min.css" />
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "Sending/receiving info";
+    var mkdocs_page_input_path = "api\\info.md";
+    var mkdocs_page_url = null;
+  </script>
+  
+  <script src="../../js/jquery-2.1.1.min.js" defer></script>
+  <script src="../../js/modernizr-2.8.3.min.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.12.0/highlight.min.js"></script>
+  <script>hljs.initHighlightingOnLoad();</script> 
+  
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+        <a href="../.." class="icon icon-home"> FSD (unofficial)</a>
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+    <input type="text" name="q" placeholder="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="main navigation">
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Preface</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../intro/preface/">Preamble</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../intro/legal/">Legal</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../intro/gpl/">License</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Introduction</span></p>
+                <ul>
+                    <li class="toctree-l1"><a class="reference internal" href="../../intro/defs/">Terms used</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../../intro/overview/">Overview of FSD</a>
+                    </li>
+                </ul>
+                <p class="caption"><span class="caption-text">Reference</span></p>
+                <ul class="current">
+                    <li class="toctree-l1"><a class="reference internal" href="../packet/">FSD packet</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../connect/">Connecting</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../addclients/">Adding/removing clients</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../pos/">Position updates</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../metar/">METAR</a>
+                    </li>
+                    <li class="toctree-l1 current"><a class="reference internal current" href="./">Sending/receiving info</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#commands">Commands</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#acc-aircraft-configuration-vatsim-only">ACC - Aircraft configuration (VATSIM only)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#atis-atis">ATIS - ATIS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#c-tuned-frequency-ivao-only">C? - Tuned frequency [IVAO only]</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#caps-client-capabilities">CAPS - Client capabilities</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#rn-real-name">RN     -  Real name</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#server-only-commands">Server-only commands</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#inf-client-system-information">INF - Client system information</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#text-messages">Text messages</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#special-recipients">Special recipients</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#escaping-of-message-contents">Escaping of message contents</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#flight-plan-acknowledgement-vatsim">Flight plan acknowledgement (VATSIM)</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#server-messages">Server messages</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#flight-plans">Flight plans</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#ivao">IVAO</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#vatsim">VATSIM</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../others/">Other packets</a>
+                    </li>
+                    <li class="toctree-l1"><a class="reference internal" href="../logoff/">Logging off</a>
+                    </li>
+                </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href="../..">FSD (unofficial)</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../..">Docs</a> &raquo;</li>
+    
+      
+        
+          <li>Reference &raquo;</li>
+        
+      
+    
+    <li>Sending/receiving info</li>
+    <li class="wy-breadcrumbs-aside">
+      
+    </li>
+  </ul>
+  
+  <hr/>
+</div>
+          <div role="main">
+            <div class="section">
+              
+                <h1 id="sending-and-receiving-information">Sending and receiving information</h1>
+<p>All requests are prefaced with <code>$CQ</code>.  A client may send or receive requests:</p>
+<pre><code>$CQ(requester):(requestee):(command)
+</code></pre>
+<p>Responses follow the format below:</p>
+<pre><code>$CR(requestee):(requester):(command):(data)
+</code></pre>
+<h2 id="commands">Commands</h2>
+<h3 id="acc-aircraft-configuration-vatsim-only"><code>ACC</code> - Aircraft configuration (VATSIM only)</h3>
+<p>Returns the current configuration (i.e. flaps, landing gear, lights etc.) of the requested callsign's aircraft. Requests and responses are formatted in JSON.</p>
+<p><code>ACC</code> data is received for all aircraft within visibility range, even if not requested. </p>
+<p>It may also be sent by a client uninitiated at any time (e.g. if the user extends/retracts flaps). In such a case, the <code>ACC</code> packet is addressed to <code>@94836</code>.</p>
+<p>IVAO does not appear to have an equivalent command.</p>
+<p><strong>Note:</strong> the formatted fields below contain only the <code>(data)</code> field.</p>
+<p><strong>Request:</strong></p>
+<pre><code class="language-json">{&quot;request&quot;:&quot;full&quot;} 
+</code></pre>
+<p><em>All <code>ACC</code> requests from other users contain this exact JSON string .</em></p>
+<p><strong>Sample response:</strong></p>
+<p>For some reason, <code>ACC</code> responses are prefixed with <code>$CQ</code>, and <strong>not</strong> <code>$CR</code> (as would be expected for a response):</p>
+<pre><code class="language-json">{
+    &quot;config&quot;:{
+        &quot;is_full_data&quot;:true,
+        &quot;lights&quot;:{
+            &quot;strobe_on&quot;:false,
+            &quot;landing_on&quot;:false,
+            &quot;taxi_on&quot;:true,
+            &quot;beacon_on&quot;:true,
+            &quot;nav_on&quot;:true,
+            &quot;logo_on&quot;:false
+        },
+        &quot;engines&quot;:{
+            &quot;1&quot;:{
+                &quot;on&quot;:true
+            },
+            &quot;2&quot;:{
+                &quot;on&quot;:true
+            }
+        },
+        &quot;gear_down&quot;:false,
+        &quot;flaps_pct&quot;:0,
+        &quot;spoilers_out&quot;:false,
+        &quot;on_ground&quot;:true
+    }
+}
+</code></pre>
+<p><em>Line breaks have been inserted for readability. They are not present in the actual packets.</em></p>
+<p>If the <code>ACC</code> packet is being sent by the client uninitiated, then JSON fields may be omitted as desired.</p>
+<h3 id="atis-atis"><code>ATIS</code> - ATIS</h3>
+<p>Returns the requested callsign's voice server URL and ATIS message. This is only applicable for ATC stations.</p>
+<p>Each controller has an "ATIS" field associated with it. This field is essentially a user-defined information box. It does not contain the airfield ATIS, unless it belongs to an ATIS station (see below).</p>
+<p>On VATSIM, actual airfield ATISes are implemented by means of an additional online station with the callsign <code>ICAO_ATIS</code>. Its ATIS field contains the actual ATIS, and a computer-generated voice is broadcast on Its voice channel to simulate voice ATIS.</p>
+<p><strong>Request:</strong></p>
+<pre><code>$CQ(requester):(requestee):ATIS
+</code></pre>
+<p><strong>Response:</strong></p>
+<pre><code>$CR(requestee):(requester):ATIS:V:(voice server address, without &quot;http://&quot;)
+...
+$CR(requestee):(requester):ATIS:T:(line of ATIS text)
+$CR(requestee):(requester):ATIS:T:(line of ATIS text)
+...
+$CR(requestee):(requester):ATIS:E:(total number of lines, including this line)
+</code></pre>
+<h3 id="c-tuned-frequency-ivao-only"><code>C?</code> - Tuned frequency [IVAO only]</h3>
+<p>Returns the radio frequency the user is tuned to.</p>
+<p><strong>Request:</strong></p>
+<pre><code>$CQ(requestee):(requester):C?
+</code></pre>
+<p><strong>Response:</strong></p>
+<pre><code>$CR(requestee):(requester):C?:(frequency)
+</code></pre>
+<p>The frequency is formatted as <code>xxx.yyy</code> (e.g. 122.800)</p>
+<h3 id="caps-client-capabilities"><code>CAPS</code> - Client capabilities</h3>
+<p>Returns a list of the client's capabilities. It is unclear as to what these capabilities are, as pilots and ATC stations appear to return the exact same values.</p>
+<p>Both clients and <code>SERVER</code> will request CAPS information.</p>
+<p><strong>Request:</strong></p>
+<pre><code>$CQ(requestee):(requester):CAPS
+</code></pre>
+<p><strong>Response:</strong></p>
+<pre><code>$CR(requestee):(requester):CAPS:ATCINFO=1:SECPOS=1:MODELDESC=1:ONGOINGCOORD=1
+</code></pre>
+<h3 id="rn-real-name"><code>RN</code>     -  Real name</h3>
+<p>Returns the real name of the user logged in as the requested callsign.</p>
+<p><strong>Request:</strong></p>
+<pre><code>$CQ(requester):(requestee):RN
+</code></pre>
+<p><strong>Response:</strong></p>
+<p>ATC:</p>
+<pre><code>$CR(requestee):(requester):RN:(real name):(ATC sector file):(rating)
+</code></pre>
+<p>Pilot:</p>
+<pre><code>$CR(requestee):(requester):RN:(real name ICAO)::(rating) 
+</code></pre>
+<h2 id="server-only-commands">Server-only commands</h2>
+<p>The following commands are only sent/received by the server. The sending/receiving station is represented as <code>DATA</code> or <code>SERVER</code>:</p>
+<h3 id="inf-client-system-information"><code>INF</code> - Client system information</h3>
+<p><strong>Request:</strong></p>
+<pre><code>$CQDATA:(recipient):INF 
+</code></pre>
+<p><strong>Response:</strong></p>
+<pre><code>#TM(callsign):DATA:(client string) PID=(CID) ((Real name ICAO)) IP=(IP address) SYS_UID=(uid) FSVER=(sim) LT=(lat) LO=(lon) AL=(alt) 
+</code></pre>
+<ul>
+<li><code>SYS_UID</code> is a 9-digit number. It appears to be a negative value.</li>
+<li><code>FSVER</code> represents the flight simulator being used (e.g. <code>Prepar3dV3</code>). It is left blank (but not omitted) if the client is ATC.</li>
+<li><code>LA</code>,<code>LO</code>, and <code>AL</code> appear to be floating-point numbers</li>
+</ul>
+<h2 id="text-messages">Text messages</h2>
+<p>All messages are prefixed with <code>#TM</code>:</p>
+<pre><code>#TM(sender):(recipient):(message contents)
+</code></pre>
+<p>If <code>(sender)</code> and <code>(recipient)</code> are online callsigns, then this command acts as a private message.</p>
+<h3 id="special-recipients">Special recipients</h3>
+<p>The following recipients are treated differently:</p>
+<table>
+<thead>
+<tr>
+<th>Recipient</th>
+<th>Meaning</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>@xxyyy</code></td>
+<td>Sends the message over the frequency <strong>1xx.yyy MHz</strong>, instead of PM.</td>
+</tr>
+<tr>
+<td><code>*</code></td>
+<td>Broadcast message, received by everyone on the network. <br /><br />IVAO and VATSIM restrict this functionality to supervisors and administrators, but it is unknown if this is enforced server-side.</td>
+</tr>
+</tbody>
+</table>
+<p>If <code>(sender)</code> and <code>(recipient)</code> are not online callsigns, then the text message represents additional background functionality that the average user does not see or deal with. It is used by VATSIM to hack in additional functionality (see below), without making major modifications to the protocol.</p>
+<h3 id="escaping-of-message-contents">Escaping of message contents</h3>
+<p>VATSIM appears to correctly escape message contents, as including colons in message text does not seem to cause unexpected behaviour.</p>
+<p>However, this does not seem to be the case in IVAO. To correctly escape colons, use <code>::</code> as the escape sequence.</p>
+<h3 id="flight-plan-acknowledgement-vatsim">Flight plan acknowledgement (VATSIM)</h3>
+<pre><code>#TM(own callsign):FP:(flightplan callsign) GET
+</code></pre>
+<p>Once the client receives a flight plan, it shall acknowledge it using the above command. The reason for this is unknown.</p>
+<p>The server will then acknowledge with the following:</p>
+<pre><code>#PCserver:(own callsign):CCP:BC:(flightplan callsign):0
+</code></pre>
+<h3 id="server-messages">Server messages</h3>
+<pre><code>#TMserver:(callsign):(message)
+</code></pre>
+<p>These are essentially text messages that are sent from a callsign named <code>server</code>.</p>
+<p>These are usually seen on initial login.</p>
+<h2 id="flight-plans">Flight plans</h2>
+<p>A pilot may file a flight plan as follows:</p>
+<h3 id="ivao">IVAO</h3>
+<p>IVAO's flightplan format is more detailed, and is based on the <a href="https://www.faa.gov/documentLibrary/media/Form/FAA_7233-4_PRA_07-31-2017.pdf">ICAO international flight plan [PDF, page 2]</a>.</p>
+<p>Please refer to <a href="https://www.ivao.aero/training/documentation/books/SPP_ADC_Flightplan_Understanding.pdf">IVAO documents [PDF]</a> on what to include in each field.</p>
+<pre><code>$FP(callsign):SERVER:(VFR/IFR):(acft):(spd):(origin):(sched dep):1000:(crz alt):(dest):(EET):(FOB):0:0::(remarks):(alt airport):S:0:
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Placeholder</th>
+<th>details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>(VFR/IFR)</code></td>
+<td><code>V</code> or <code>I</code></td>
+</tr>
+<tr>
+<td><code>(acft)</code></td>
+<td>Aircraft and equipment, in the format <code>#/(model)/(turb)-(equip)/(xpdr)</code> (e.g. <code>1/B738/M-SDE2E3FGHIRWXY/LB1</code>). Please refer to the <a href="https://www.ivao.aero/training/documentation/books/SPP_ADC_Flightplan_Understanding.pdf">IVAO documents [PDF]</a> for further details.</td>
+</tr>
+<tr>
+<td><code>(spd)</code></td>
+<td>Cruising airspeed, in knots. Prefixed with <code>K</code> (km/h) <code>N</code> (knots), or <code>M</code> (Mach). <code>K</code> /<code>N</code> are always 4-digit, and <code>M</code> is 3 digits without the decimal (e.g. M082 = Mach 0.82)</td>
+</tr>
+<tr>
+<td><code>(sched dep)</code></td>
+<td>Scheduled departure; e.g. <code>2215</code> or 10:15pm Z</td>
+</tr>
+<tr>
+<td><code>(crz alt)</code></td>
+<td>Cruising level. Prefixed with <code>F</code> (flight level in feet), <code>S</code> (metric flight level in x10 metres), <code>A</code> (altitude in x100 feet), <code>M</code> (altitude in x10 metres), or <code>VFR</code> (VFR flight with no specific altitude)</td>
+</tr>
+<tr>
+<td><code>(EET)</code></td>
+<td>Estimated enroute time; e.g. <code>1:37</code></td>
+</tr>
+<tr>
+<td><code>(FOB)</code></td>
+<td>Fuel on board; e.g. <code>2:30</code></td>
+</tr>
+</tbody>
+</table>
+<p><em>Further clarification is required on some fields.</em></p>
+<h3 id="vatsim">VATSIM</h3>
+<p>VATSIM's flightplan format is simpler, and is based on the <a href="https://www.faa.gov/documentLibrary/media/Form/FAA_Form_7233-1_7_31_17.pdf">FAA domestic flight plan [PDF]</a>.</p>
+<pre><code>$FP(callsign):*A:(VFR/IFR):(acft type):(spd):(origin):(sched dep):(sched dep):(alt):(dest):(EET):(FOB):(alt airport):(remarks)
+</code></pre>
+<table>
+<thead>
+<tr>
+<th>Placeholder</th>
+<th>details</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>(VFR/IFR)</code></td>
+<td><code>V</code> or <code>I</code></td>
+</tr>
+<tr>
+<td><code>(acft type</code>)</td>
+<td>includes FAA prefixes/suffixes, if present; e.g. <code>H/B77W/L</code></td>
+</tr>
+<tr>
+<td><code>(spd)</code></td>
+<td>Ground speed, in knots</td>
+</tr>
+<tr>
+<td><code>(sched dep)</code></td>
+<td>Scheduled departure; e.g. <code>2215</code> or 10:15pm Z</td>
+</tr>
+<tr>
+<td><code>(EET)</code></td>
+<td>Estimated enroute time; e.g. <code>1:37</code></td>
+</tr>
+<tr>
+<td><code>(FOB)</code></td>
+<td>Fuel on board; e.g. <code>2:30</code></td>
+</tr>
+</tbody>
+</table>
+<p>Flight plan packets are sent to all other clients on the server, even if not requested.</p>
+<p>On VATSIM, once such a packet has been received, the client acknowledges it (see "Receipt of flight plan (VATSIM)" under "Text messages" on this page).</p>
+              
+            </div>
+          </div>
+          <footer>
+  
+    <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
+      
+        <a href="../others/" class="btn btn-neutral float-right" title="Other packets">Next <span class="icon icon-circle-arrow-right"></span></a>
+      
+      
+        <a href="../metar/" class="btn btn-neutral" title="METAR"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+      
+    </div>
+  
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+    
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/snide/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+      
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="versions">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+      
+        <span><a href="../metar/" style="color: #fcfcfc;">&laquo; Previous</a></span>
+      
+      
+        <span style="margin-left: 15px"><a href="../others/" style="color: #fcfcfc">Next &raquo;</a></span>
+      
+    </span>
+</div>
+    <script>var base_url = '../..';</script>
+    <script src="../../js/theme.js" defer></script>
+      <script src="../../search/main.js" defer></script>
+    <script defer>
+        window.onload = function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        };
+    </script>
+
+</body>
+</html>
