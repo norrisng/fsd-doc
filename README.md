@@ -2,7 +2,7 @@
 
 An unofficial attempt at documenting the implementations of FSD used today. IVAO and VATSIM happen to be the most common ones, though there are likely others.
 
-[The documentation can be viewed here](https://fsd-doc.norrisng.ca/).
+The documentation can be viewed here: https://fsd-doc.norrisng.ca/.
 
 **NOTE:** the original link at https://studentweb.uvic.ca/~norrisng/fsd-doc/ is no longer accessible. Please update your links, bookmarks, favourites, URLs, BBQs, etc etc.
 
