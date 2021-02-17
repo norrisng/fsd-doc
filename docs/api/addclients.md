@@ -22,6 +22,11 @@ It is unknown as to what `100` represents, but it appears that all clients share
 #AP(callsign):SERVER:(network ID)::1:(protocol version):(rating):(real name ICAO)
 ```
 
+### When the SERVER asks to add a plane in your system ###
+It will send you as the following
+```
+#SB{recipient}:{who's plane}:FSIPIR:1::{plane type like F18}:6.77316:-1.96366:400.00000:4.7F50DEA9.97E5F402::{detailed aircraft description}
+```
 
 
 ## Removing clients ##
