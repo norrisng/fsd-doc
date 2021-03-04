@@ -34,3 +34,14 @@ According to VATSIM forum threads, it appears that this feature may have been ad
 
 IVAO servers do not appear to utilize this form of authentication.
 
+## Kick User (VATSIM)
+
+Kicking a user requires a client to send a specific kick packet prefixed with `$!!` to the server, along with the callsign to be kicked and a kick reason as parameters. The packet will not truly kick the user unless the kick-initiating client is logged in with an ATC rating at or above Supervisor. Kicking a user is usually initiated by using the `.kill` command found in many ATC and pilot clients.
+
+```
+$!!(callsign):(target callsign):(reason)
+```
+
+`(target callsign)` is the callsign that will be kicked from the network.
+
+`(reason)` is the reason for the kick. This will be displayed to the user being kicked before being disconnected.
